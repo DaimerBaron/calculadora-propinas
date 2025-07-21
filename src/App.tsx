@@ -1,29 +1,32 @@
-
-import MenuItem from './components/MenuItem';
-import { menuItems } from './data/db';
-import { UseOrder } from './hooks/UseOrder';
+import MenuItem from "./components/MenuItem";
+import Order from "./components/Order";
+import { menuItems } from "./data/db";
+import { UseOrder } from "./hooks/UseOrder";
 function App() {
-  const { addItem} = UseOrder()
+  const { addItem, order } = UseOrder();
   return (
     <>
       <header className="bg-teal-400 py-5">
-        <h1 className="font-black text-center text-2xl">Calculadora de propinas y consumos </h1>
+        <h1 className="font-black text-center text-2xl">
+          Calculadora de propinas y consumos{" "}
+        </h1>
       </header>
-      <main className='container mx-auto mt-10 max-w-7xl grid md:grid-cols-2 md:gap-10'> 
-        
-          <div className="bg-white shadow-md rounded-lg p-6  max-w-5xl px-10  ">
-            <h2 className='text-2xl font-black mb-2'>Menu</h2>
-            <div className='space-y-2 '>
-              {menuItems.map(item=>(<MenuItem addItem={addItem} key={item.id} item= {item}/>) )}
-            </div>
+      <main className="container mx-auto mt-10 max-w-7xl grid md:grid-cols-2 md:gap-10">
+        <div className="bg-white shadow-md rounded-lg p-6  max-w-5xl px-10  ">
+          <h2 className="text-2xl font-black mb-2">Menu</h2>
+          <div className="space-y-2 ">
+            {menuItems.map((item) => (
+              <MenuItem addItem={addItem} key={item.id} item={item} />
+            ))}
           </div>
-          <div className="bg-white shadow-md rounded-lg p-6 mt-6 max-w-5xl ">
-            <h2>Consumo</h2>
-          </div>
-      
+        </div>
+        <div className="bg-white shadow-md rounded-lg p-6  max-w-5xl ">
+          <h2 className="text-2xl font-black mb-2 ">Consumo</h2>
+          <Order order = {order} />
+        </div>
       </main>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
