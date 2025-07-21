@@ -3,6 +3,7 @@ import type { MenuItem, OrderItem } from "../types";
 
 export const UseOrder = () => {
   const [order, setOrder] = useState<OrderItem[]>([]);
+  const [tip, setTip] = useState(0);
 
   const addItem = (item: MenuItem) => {
     const existsOrder = order.find((orderItem) => orderItem.id === item.id);
@@ -18,8 +19,16 @@ export const UseOrder = () => {
       setOrder([...order, newItem]);
     }
   };
+
+  const removeItem = (id: MenuItem['id']) => {
+    const updatedOrder = order.filter((item) => item.id !== id);
+    setOrder(updatedOrder);
+  }
   return {
     addItem,
     order,
+    removeItem,
+    tip,
+    setTip
   };
 };
