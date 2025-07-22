@@ -5,7 +5,7 @@ import TipPorcentegeForm from "./components/TipPorcentegeForm";
 import { menuItems } from "./data/db";
 import { UseOrder } from "./hooks/UseOrder";
 function App() {
-  const { addItem, order, removeItem, tip, setTip } = UseOrder();
+  const { addItem, order, removeItem, tip, setTip, placeOrder } = UseOrder();
   return (
     <>
       <header className="bg-teal-400 py-5">
@@ -25,8 +25,8 @@ function App() {
         <div className="bg-white shadow-md rounded-lg p-6  max-w-5xl ">
           <h2 className="text-2xl font-black mb-2 ">Consumo</h2>
           <Order order={order} removeItem={removeItem} />
-          <TipPorcentegeForm setTip={setTip} />
-          <OrderTotal order={order} tip = {tip} />
+          <TipPorcentegeForm setTip={setTip} tip= {tip} />
+          <OrderTotal order={order} tip = {tip} placeOrder = {placeOrder}/>
         </div>
       </main>
     </>

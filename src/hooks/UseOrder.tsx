@@ -20,15 +20,22 @@ export const UseOrder = () => {
     }
   };
 
-  const removeItem = (id: MenuItem['id']) => {
+  const removeItem = (id: MenuItem["id"]) => {
     const updatedOrder = order.filter((item) => item.id !== id);
     setOrder(updatedOrder);
+  };
+
+  const placeOrder = ()=>{
+    setOrder([])
+    setTip(0)
   }
+
   return {
     addItem,
     order,
     removeItem,
     tip,
-    setTip
+    setTip,
+    placeOrder
   };
 };

@@ -19,15 +19,18 @@ const tipOptions = [
 ]
 
 type TipPorcentegeFormProps = {
+    tip: number
     setTip: React.Dispatch<React.SetStateAction<number>>;
 }
-export default function TipPorcentegeForm({ setTip}: TipPorcentegeFormProps) {
+export default function TipPorcentegeForm({ setTip, tip}: TipPorcentegeFormProps) {
   return (
-    <div>
+    <div className="space-y-2 border-t border-gray-300 mt-5">
         <h2 className="text-xl font-black mt-3 mb-3">Propinas</h2>
         <form>
+            
             {tipOptions.map((option) => (
             <div key={option.id} className="flex items-center gap-2">
+             
                 <label htmlFor={option.id}> {option.label}</label>
                 <input
                     type="radio"
@@ -35,6 +38,7 @@ export default function TipPorcentegeForm({ setTip}: TipPorcentegeFormProps) {
                     id={option.id}
                     value={option.value}
                     onChange={e => setTip(Number(e.target.value))}
+                    checked= {option.value === tip}
                  />
                 
             </div>

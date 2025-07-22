@@ -11,7 +11,7 @@ export default function Order({ order, removeItem  }: OrderProps) {
         <p className="text-xl ">No hay pedidos</p>
       ) : (
         order.map((item) => (
-          <div key={item.id} className="flex justify-between   border-t border-gray-300 py-2.5 last-of-type:border-b">
+          <div key={item.id} className="flex justify-between   border-t border-gray-300 py-2.5 last-of-type:border-b ">
             <div>
               <p className="text-lg ">
                 {item.name} - {formatCurrency(item.price)}
