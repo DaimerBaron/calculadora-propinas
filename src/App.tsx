@@ -24,9 +24,15 @@ function App() {
         </div>
         <div className="bg-white shadow-md rounded-lg p-6  max-w-5xl ">
           <h2 className="text-2xl font-black mb-2 ">Consumo</h2>
-          <Order order={order} removeItem={removeItem} />
-          <TipPorcentegeForm setTip={setTip} tip= {tip} />
-          <OrderTotal order={order} tip = {tip} placeOrder = {placeOrder}/>
+          {order.length > 0 ? (
+            <div>
+              <Order order={order} removeItem={removeItem} />
+              <TipPorcentegeForm setTip={setTip} tip={tip} />
+              <OrderTotal order={order} tip={tip} placeOrder={placeOrder} />
+            </div>
+          ) : (
+            <p>No hay productos para mostrar</p>
+          )}
         </div>
       </main>
     </>
