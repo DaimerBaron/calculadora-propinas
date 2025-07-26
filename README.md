@@ -1,5 +1,5 @@
 # 💸 Calculadora de Propinas
-🔗 **[Calculadora-propinas-practica](https://tu-sitio.netlify.app](https://calculadora-propina-practice.netlify.app/))**
+🔗 **[Calculadora-propinas-practica](https://calculadora-propina-practice.netlify.app/)**
 
 ## 🧾 ¿De qué se trata el proyecto?
 
